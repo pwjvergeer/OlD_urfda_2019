@@ -1,2 +1,2 @@
-# urfda_2019
-This is the public repository for the "Using R for Data Analysis" Course April - June 2019
+# daur_18_19
+This repo contains the materials for the "Data Analysis Using R Course" @HU 2018 - 2019

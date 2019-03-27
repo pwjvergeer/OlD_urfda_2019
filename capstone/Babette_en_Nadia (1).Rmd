@@ -1,0 +1,118 @@
+---
+title: "Capstone"
+author: "Nadia en Babette"
+date: "12-12-2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Introduction
+
+Here we load the packages we need for this R-document. 
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(readr)
+library(gplots)
+library(geneplotter)
+```
+
+Here we enter the data we are using. The name of the dataframe is uspollution.
+
+```{r, root_1, include=FALSE}
+## defines the root of the project for later use
+require("rprojroot") || utils::install.packages("rprojroot")
+library(rprojroot)
+root <- find_root_file(criterion = is_rstudio_project)
+```
+
+```{r, read_data}
+file_with_data <- file.path(root, "capstone", "data", "uspollution", "uspollution.zip")
+unzip(zipfile = file_with_data, exdir = root)
+
+pollution <- read_csv(file = file.path(root, "pollution_us_2000_2016.csv"))
+
+```
+
+Inspecting the data 
+```{r}
+names(pollution)
+
+head(pollution, 5)
+tail(pollution, 5)
+
+is.na(pollution)
+sum(is.na(pollution))
+```
+
+Extract the data you want to use in a plot
+```{r}
+## dplyr
+names(pollution)
+
+citpol <- pollution %>%
+  dplyr::select(City, NO2_Mean, O3_Mean, SO2_Mean, CO_Mean, O3_AQI, 
+                Date_Local)
+
+citpol
+
+## Extract the data you want to use in a plot
+#citpol <- c('City', 'NO2 Mean', 'O3 Mean', 'SO2 Mean', 'CO Mean')
+#Means <- pollution[citpol]
+
+## inspect the data
+is.na(Means)
+sum(is.na(Means))
+
+names(pollution) <- str_replace_all(names(pollution), pattern = " ",
+                                    replacement = "_")
+
+names(pollution)
+
+## summary with dplyr
+summary <- citpol %>%
+  group_by(Date_Local, City) %>%
+  
+  ## filter for cities? - dplyr::filter()
+  
+  summarise(mean_no2 = mean(NO2_Mean, na.rm = TRUE))
+
+
+## make a plot
+summary %>% 
+  ggplot(aes(x = City,
+             y = mean_no2)) +
+  geom_point(colour = 'green', size = 3)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
