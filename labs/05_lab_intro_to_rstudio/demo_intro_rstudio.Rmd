@@ -1,0 +1,220 @@
+---
+title: "RStudio"
+author: "Marc A.T. Teunis"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## RStudio IDE
+RStudio is an Integrated Development Environment that helps you be more productive with R. To use RStudio you need to first install R itself:
+
+The lastest version of R can be installed from the Comprehensive R Archive Network `CRAN`: 
+
+https://cran.r-project.org/
+
+## Tutorials
+Several good tutorials on starting with RStudio:
+
+ - https://www.sitepoint.com/introduction-r-rstudio/\
+ 
+
+## Preview releases (daily builds)
+For the brave and impatient:
+RStudio releases it's daily builds (test versions) on:
+
+https://www.rstudio.com/products/rstudio/download/preview/
+
+Here you can review the latest changes and improvements of the IDE.
+
+## Cheatsheet:
+This link will download the pdf of the RStudio cheatsheet:
+https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf
+
+## More important cheatsheets that can help:
+https://www.rstudio.com/resources/cheatsheets/
+
+## A few tricks 
+Go over them to learn about a few options in RStudio
+
+### If you are really stuck
+If R hangs, restart R by: `Session` -> `Restart R`
+
+### New File
+You can create new files under `File`. Choose from the list the file type that you want to create.
+
+### Clear Console
+To clear the contents of the console: `Edit` -> `Clear Console`
+
+### Clear the `Global Environment`
+To clear the global environment you have two options:
+Either by using a line of code (be carefull not to put this in code you share with other, you will accentially clear **THEIR** environment, which may cause substraction of Karma points)
+
+```{r, eval=FALSE}
+## create dummies:
+x <- runif(n = 10)
+y = rnorm(n = 100)
+z = "this is character dummy"
+## remove them
+rm(list=ls())
+```
+
+Or in RStudio: Click the small `stick-broom` in the `Environment` pane
+
+### The `stick-broom` icon clears other things as well
+You will find the `stick-broom` in other panes in RStudio as well, it clears the object in the `Plots` and the `Viewer` panes respectively.
+### Background theme
+To change the theme: `Tools` -> `Global Options` -> `Appearance` -> Choos an `Editor Theme` that is appealing to you. Dark background is most relaxing for your eyes.
+
+### Inline output disable
+When you RStudio for the fist time amnd you start a new RMarkdown, the code output is shown inline of the RMarkdown document in the cript editor. It is best to disable this: 
+`Tools` -> `Global Options` -> `R Markdown` -> Uncheck the option "Show output inline for all ...."
+
+### Reformat code
+To force you to adhere to the code style formatting:
+You can reformat code according the code style suggested by Hadley Wickham here:
+
+
+using `Edit` -> `Reformat Code`
+See what happens to the code formatting if you select the code below and apply reformatting to it.
+
+## Circos plot
+```{r, eval=FALSE}
+library(circlize)
+# dend: as dendrogram object, usually returned by hclust and as.dendrogram
+# maxy: maximum height of the tree
+circos.dendrogram = function(dend, maxy){
+labels = as.character(labels(dend))
+x = seq_along(labels) - 0.5
+names(x) = labels
+
+is.leaf = function(object)
+(is.logical(L <- attr(object, "leaf"))) && L
+  
+  # recursive function to draw the tree
+draw.d = function(dend, maxy) {
+leaf = attr(dend, "leaf")
+d1 = dend[[1]]
+d2 = dend[[2]]
+height = attr(dend, 'height')
+midpoint = attr(dend, 'midpoint')
+    
+if (is.leaf(d1)) {
+x1 = x[as.character(attr(d1, "label"))]
+} else {
+x1 = attr(d1, "midpoint") + x[as.character(labels(d1))[1]]
+}
+y1 = attr(d1, "height")
+    
+if (is.leaf(d2)){
+x2 = x[as.character(attr(d2, "label"))]
+} else {
+x2 = attr(d2, "midpoint") + x[as.character(labels(d2))[1]]
+}
+y2 = attr(d2, "height")
+circos.lines(c(x1, x1), maxy - c(y1, height), straight = TRUE)
+circos.lines(c(x1, x2), maxy - c(height, height))
+circos.lines(c(x2, x2), maxy - c(y2, height), straight = TRUE)
+
+if (!is.leaf(d1)) {
+draw.d(d1, maxy)
+    }
+if (!is.leaf(d2)) {
+draw.d(d2, maxy)
+    }
+  }
+  
+  draw.d(dend, maxy)
+}
+
+
+mat = matrix(rnorm(100 * 10), nrow = 10, ncol = 100)
+factors = rep(letters[1:2], 50)
+par(mar = c(1, 1, 1, 1))
+circos.par(cell.padding = c(0, 0, 0, 0), gap.degree = 5)
+circos.initialize(factors, xlim = c(0, 50))
+maxy = 0
+
+f = colorRamp2(breaks = c(-1, 0, 1),
+               colors = c("green", "black", "red"))
+
+circos.trackPlotRegion(
+ylim = c(0, 10),
+bg.border = NA,
+panel.fun = function(x, y) {
+sector.index = get.cell.meta.data("sector.index")
+m = mat[, factors == sector.index]
+    
+dend.col = as.dendrogram(hclust(dist(t(m))))
+    
+maxy = ifelse(maxy > attr(dend.col, "height"),
+maxy,
+attr(dend.col, "height"))
+assign("maxy", maxy, envir = .GlobalEnv)
+    
+m2 = m[, labels(dend.col)]
+nr = nrow(m2)
+nc = ncol(m2)
+for (i in 1:nr) {
+for (j in 1:nc) {
+circos.rect(j - 1,
+                    nr - i,
+                    j,
+                    nr - i + 1,
+                    border = f(m2[i, j]),
+                    col = f(m2[i, j]))
+      }
+    }
+    
+  }
+)
+circos.trackPlotRegion(
+ylim = c(0, maxy),
+bg.border = NA,
+track.height = 0.3,
+panel.fun = function(x, y) {
+sector.index = get.cell.meta.data("sector.index")
+m = mat[, factors == sector.index]
+  
+dend.col = as.dendrogram(hclust(dist(t(m))))
+    
+circos.dendrogram(dend.col, maxy)
+    
+}
+)
+
+circos.clear()
+
+x = seq(-10, 10, length.out = 100) / 40
+col = f(seq(-2, 2, length.out = length(x - 1)))
+for (i in seq_along(x)) {
+if (i == 1)
+next
+rect(x[i - 1],-0.05, x[i], 0.05, col = col[i], border = col[i])
+}
+
+text(x[1],-0.08, "-2", adj = c(0.5, 1), cex = 1.2)
+text(x[ceiling(length(x) / 2)],-0.08, "0", adj = c(0.5, 1), cex = 1.2)
+text(x[length(x)],-0.08, "2", adj = c(0.5, 1), cex = 1.2)
+
+```
+
+### Linux (Bash or PowerShell in Windows) Terminal
+Sometimes we want to able to do some operations in Linux. For example seeing the head of a large file, without loading it into R first, or install addional software (in Linux you would need root acces or so-called `sudo` privileges for this).
+
+To start a new `Terminal`: `Tools` -> `Terminal` -> `New Terminal`
+Try it below and copy (Ctrl + C), paste (Shift + Insert) the following Bash code in your new `Terminal`
+
+```{Bash, eval = FALSE}
+head -30 data/allijn.tsv
+```
+
+ 
+
+
+
+
+

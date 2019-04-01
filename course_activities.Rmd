@@ -1,0 +1,59 @@
+---
+title: "Course Activities"
+author: "Marc A.T. Teunis"
+date: "3/27/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, root_1, include=FALSE}
+## defines the root of the project for later use
+require("rprojroot") || utils::install.packages("rprojroot")
+library(rprojroot)
+root <- find_root_file(criterion = is_rstudio_project)
+```
+
+```{r, include=FALSE}
+exercise_files <- list.files(path = file.path(root, "exercises"), full.names = TRUE, recursive = TRUE)
+
+presentation_files <- list.files(path = file.path(root, "presentations"), full.names = TRUE, recursive = TRUE)
+
+##exercise_files
+```
+
+## Day 1
+
+On day one we wil get introduced to Git, Github, Visualization examples in R RStudio,  and R basics and in that order. Why? 
+
+ - Git is used to keep track of changes, collaborate and reproduce.
+ - Github is used to share code (any code), data and other files and find additional R resources and packages.  
+
+## Day 1 Visualizations
+
+ - Are a great way to get inspired on the possibilities for using R
+ - Are great for exploring new datasets
+ - Are a great way to learn (new) ways of writing R code
+
+## Day 1 RStudio
+
+ - We will use RStudio Server as an Integrated Development Environment (IDE) for developing in R
+ - RStudio is one of most widely used IDEs
+ - RStudio integrates with the `Tidyverse`
+ - RStudio enables easy creation of your own R package
+
+## Day 1 Intro to R
+
+
+
+
+## Day 1 files
+
+
+
+
+
+
+
