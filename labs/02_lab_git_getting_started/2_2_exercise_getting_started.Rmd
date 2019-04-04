@@ -49,10 +49,21 @@ To run the code chunks: set the cursor between the start ` ```{r} ` and the end
 ## R & RStudio
 Throughout this course you will be working with the open source programs R and RStudio. RStudio is an integrated development environment (IDE) that allows you to use R in an interactive (and graphical) way, write your scripts/code and manage your workspace. R and Rstudio are already pre-installed on the course laptops, but for home use can be downloaded for free from http://www.r-project.org and http://www.rstudio.com.
 
-## Cloud server for RStudio
-During the workshop, we will be using a preinstalled version of the R-IDE (integrated development environment) RStudio. This version runs on a remote server and has all the add-ons that are needed to run the code. You can login with the credentials supplied at the beginning of the course. 
+## Getting the materials for the course:
 
-The advantage of cloud servers is that the users do not need to install anything on their own laptops. They will be able to access the IDE, using their preferred web-browser on their computer. No installation of packages or further steps are needed.
+ 1. Go the following url: https://github.com/uashogeschoolutrecht/urfda_2019
+ 2. Copy the url address to the clipboard
+ 3. Start a new RStudio Project `File` -> `New Project`
+ 4. Select `Version Control` -> `Git` 
+ 5. Paste the url in the `Repository URL` field
+ 6. click `Create Project` and let the clone finish
+ 
+**YOU NOW HAVE THE FILES TO START THE FIRST LESSON** 
+
+## Cloud server for RStudio
+During the course, we will be using a preinstalled version of the RStudio-IDE (integrated development environment). This IDE version runs on a remote UBUNTU 18.x Linux server and has most of the packages that are needed to follow the course. You can login at the communicated server address and with the credentials supplied at the beginning of the course. 
+
+The advantage of cloud servers is that the users do not need to install anything on their own laptops. They will be able to access the IDE, using their preferred web-browser on their computer. 
 
 ## Initialize a root object to locate the root folder of the project. 
 ```{r, echo=TRUE, results='asis'} 

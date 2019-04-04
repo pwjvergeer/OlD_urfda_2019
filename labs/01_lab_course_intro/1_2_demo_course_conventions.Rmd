@@ -1,5 +1,5 @@
 ---
-title: "Conventions and Directives"
+title: "Conventions, Code and Data Management"
 author: "Marc A.T. Teunis"
 date: "`r Sys.Date()`"
 output:
@@ -7,31 +7,14 @@ output:
     highlight: pygments
     widescreen: yes
 ---
-<style>
 
-.footer {
-    font-size: 16pt;
-    color: Black;
-    font-family: 'Helvetica'
-    content: attr(label);
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align:center;
-    bottom: 10px;
-    line-height: 1.9;
-    display: block;
-}
-
-</style>
-
-<div class="footer" style="margin-top;font-size:120%;"> 
-Data Analysis Using R - `r Sys.Date()` </div>
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width = 5, fig.height = 3)
+```{r setup1, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.width = 5, 
+                      fig.height = 3,
+                      warning = FALSE,
+                      message = FALSE,
+                      error = FALSE)
 ```
 
 ```{r, root_1, include=FALSE}
@@ -39,6 +22,15 @@ knitr::opts_chunk$set(echo = TRUE, fig.width = 5, fig.height = 3)
 require("rprojroot") || utils::install.packages("rprojroot")
 library(rprojroot)
 root <- find_root_file(criterion = is_rstudio_project)
+```
+
+## Packages
+```{r}
+library(usethis)
+library(devtools)
+library(gapminder)
+library(nycflights13)
+library(tidyverse)
 ```
 
 ## Code Style
@@ -49,41 +41,36 @@ root <- find_root_file(criterion = is_rstudio_project)
 
 ## Capitals vs lower case
 
- * Everything in lower case:
+ * Everything in lower case
+ * I use `snake_case`
+ * Many people use `camelCase`
 
 ```{r}
-library(tidyverse)
+gapminder %>% names
+flights %>% names
 ```
 
 ## Printing a tbl_df
 ```{r}
-table <- data_frame("a_is_a_variable" = c(1:5), "b_is_another_variable" = rnorm(5))
+table <- tibble("a_is_a_variable" = c(1:5), "b_is_another_variable" = rnorm(5))
 table
 ```
 
 ## Variables
 
  * All lower case
- * Except R_LIB (system variables)
  * Don't use capitals and special characters in file names
 
 "`excel_file_of_important_dataset.xlsx`"
 
-* Never use capitals in file extensions
-
-## Spaces
-
- * Use an underscore as a space "_"
- * NEVER use spaces or special characters in file names
-
 DON'T: "`data file + version 12_11_2017%.xlsx`"
 
-## Packages
+## Packages referrals
 
 Names of R packages are indicated as:
 
+ * mostly: `{dplyr}`
  * sometimes: {dplyr}
- * mostly: `dplyr`
  * not often: "dplyr"
 
 ## Explicit functions
@@ -92,7 +79,7 @@ When we want to be explicit about a certain function in a package:
 
 `dplyr::filter()`
 
-Refers to the `filter()` function in the package {dplyr}
+Refers to the `filter()` function in the package `{dplyr}`
 
 ## Loose code in the slides
 Sometimes a few lines of codes are displayed for demo purpose:
@@ -107,15 +94,13 @@ Sometimes a few lines of codes are displayed for demo purpose:
 
 Code blocks in slides are indicated as below:
 The result of the code is usually also displayed
-```{r, fig.height=2.5, fig.width=3}
-
+```{r, fig.height=2, fig.width=3}
 set.seed(1234)
 code_that_does_something <- rnorm(1000)
 hist(code_that_does_something, main = "rnorm")
-
 ```
 
-## Hidding code 
+## Hiding code 
 
 Sometimes it makes sense to hide the code and only display the result. 
 This can be done by setting the code chunk options `echo = FALSE`
@@ -126,14 +111,14 @@ code_that_does_something <- rnorm(1000)
 hist(code_that_does_something, main = "rnorm")
 ```
 
-## Hiding the result from a code chunk
+## Other important chunk options
 
  * Like hiding the code, we can hide the result of that code and only display the code by setting `results = "hide"`
  * Setting `eval = FALSE` means the chunk is not included in the slide show at all
- * Setting `include = FALSE` means the chunk is run and the results are evaluated, but both the code and the results are not included in the slide-show
- * Controlling setting for the complete document
+ * Setting `include = FALSE` means the chunk is run and the results are evaluated, but both the code and the results are not included in the slide-show/document 
+ * Controlling settings for the complete document can be done in the `setup*` chunk that you will find in all Rmarkdown files from the course
 
-```{r, eval = FALSE}
+```{r, setup2, eval = FALSE}
  knitr::opts_chunk$set(echo = TRUE,
                        message = FALSE,
                        warning = FALSE,
@@ -147,55 +132,26 @@ hist(code_that_does_something, main = "rnorm")
 
  * Data for can be found in the "./data" folder of the course project
  * Sometime data needs to be downloaded from the internet. Usually the code is provided, but sometimes you will have to write a few lines of code to download data for e.g. an exercise or a case study. 
- * Many examples are with build-in data (e.g. `mtcars`, `ggplot2::diamonds` or `datasets::Indometh`)
+ * Many examples are with build-in data (e.g. `mtcars`, `gapminder`)
 
-## Directions for gathering data
+## Directions for recieving and gathering data
 
-* NEVER change a value of an original dataset
+* **NEVER EVER** change a value of an original (RAW) dataset
 * Add new variables to the dataset with recognizable names:
+* Never change a file name of a raw dataset; this will cause tracibility of that file to break.
 
-```{r}
-set.seed(1234)
-table <- table %>% mutate(mean_new = mean(b_is_another_variable),
-                          sd_new = sd(b_is_another_variable))
-table
+## Replacing old, creating new variables
+```{r, eval=FALSE}
+## replacing lifeExp in years for lifeExp in months
+gapminder$lifeExp <- (gapminder$lifeExp*24)
+
+## instead create a new variable in the dataframe
+gapminder <- gapminder %>%
+  mutate(lifeExp_months = lifeExp * 24)
 ```
 
-## Combining datatables
-When combining datasets it is good idea to create an identifier for each data set before combining.
-This enables you to trace a datapoint back to it's origin. 
+_Mutate new varibles on the basis of old one, do not replace the old variable_
 
-Let's create a second table, with the same variables as the first
-```{r} 
-set.seed(1234)
-table_2 <- data_frame("a_is_a_variable" = c(7:11), 
-                      "b_is_another_variable" = rnorm(5), 
-                      "id" = paste(c(1:5), "table_2", sep = "_")) %>% 
-  mutate(mean_new = mean(a_is_a_variable), 
-         sd_new = mean(b_is_another_variable)) %>% 
-  ## sorts the variables in the new table equal to the first table
-  select(id, a_is_a_variable, b_is_another_variable, 
-         mean_new, sd_new)
-table_2
-```
-
-## Adding an identifier to the first table
-```{r}
-set.seed(1234)
-table <- table %>% mutate(id = paste(c(1:5), "table", sep = "_")) %>% 
-  ## sorts the variables in the new table equal to the first table
-  select(id, a_is_a_variable, b_is_another_variable, 
-         mean_new, sd_new)
-table
-```
-
-## Now we bind the two together
-You can see the "id" variable in this joined table contains back-trace information on where the datapoint comes from
-```{r}
-names(table) == names(table_2)
-(table_join <- rbind(table, table_2))
-```
- 
 ## Data Governance 
 
 WIKIPEDIA: 12-05-2017:
@@ -211,10 +167,73 @@ WIKIPEDIA: 12-05-2017:
 
 ## Programming in Data Govenance
 
- * Programming tools like R can help aid governance of data
+ * Programming tools like R can aid governance of data
  * It helps debudding and finding errors, 
  * But can also introduce errors!!
- * It is reproducible and sharable
- * Programming aids communication about data and what happened to the data (in terms of gathering, cleaning, combining, filtering, visualizing)
+ * Code is reproducible and sharable
+ * Code helps communication about data and what happened to the data (in terms of gathering, cleaning, combining, filtering, visualizing)
+
+## R packages
+
+ * R packages are self-contained pieces of R code that allow easy sharing of R implementations
+ * They follow a strict structure
+ * They allow for versioning
+ * The can be tested (unit tests)
+ * They can be distributed (CRAN, Bioconductor, Github, Bitbucket, ...)
+ * They can be made to fit multiple Operating Sytems
+ 
+## There are many R packages
+
+```{r, r_packages_graph, echo=FALSE}
+source(here::here("/code/r_packages_graph.R"))
+```
+ 
+## Building an R package
+During the course we will gradually build our own R package as a demonstration that it is actually not so difficult as it sounds.
+
+## Initiate a package
+Initiate a package skeleton with the following command:
+```{r, eval=FALSE}  
+library(usethis)
+usethis::create_package(path = file.path("../courser"))
+```
+A new RStudio Project Session will open and will provide you with a skeleton of a new package called "courser". 
+
+## Adding content to the package
+
+As the course continues we will start filling this package skeleton with functions and data.
+
+We will take three more steps to start with our package:
+
+## 1. Package description
+Look at the file named "DESCRIPTION". Provide some basic            information about yourself and what the package is intended for. Fill  in the fields:
+
+  - `Title`; Provide a short description
+  - `Authors@R`; provide your name and email-address (if you want)
+  Leave the rest unchanged
+
+## 2. Add a package dependency
+Let's add our first dependency. The first dependecy that we will add is a package that we will use for data manipulation. It is called `{dplyr}` and we will use it very often. It makes sense to add this package as a dependency to our own package. The following code does that
+```{r, eval=FALSE}
+usethis::use_package(package = "dplyr")
+```
+ 
+## 3. Building a package
+To build the package
+run 
+```{r, eval=FALSE}
+devtools::document(pkg = file.path("../courser"))
+```
+Than run:
+```{r, eval=FALSE}
+system("R CMD INSTALL --preclean --no-multiarch --with-keep.source ../courser")
+```
+
+## **CONGRATULATIONS!!** 
+
+You have juist build your own R package. We can now start adding functionality to it. We will do so as the course progresses.
+
+ 
+
 
 

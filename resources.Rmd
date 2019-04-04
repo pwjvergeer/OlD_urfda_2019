@@ -15,6 +15,10 @@ For this course materials have been adapted from:
  
   - Wickham and Grolemund, "R for Data Science", 2017, O'Reily
   - Field et. al., 2015, "Discovering Statistics Using R", Sage Publications Ltd.
+  - Using R for Offical Statistics Symposium - CBS - 2018
+  - CSAMA Course for Genome Statitics - 2018
+  - Materials from https://github.com/NCEAS/oss-lessons "National Center for Ecological Analysis and Synthesis"
+  
   
 ## Resources:
 

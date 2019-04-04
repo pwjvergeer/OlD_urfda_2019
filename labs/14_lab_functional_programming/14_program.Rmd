@@ -124,17 +124,19 @@ knitr::include_graphics(path = file.path(root, "images", "pipe.png"),
                         dpi = 80)
 ```
 
-## Lecture 3: Functional programming
 
-  * Iteration
-  * `for`-loops
-  * `if`-staments
-  * `apply` family of functions
-
-## Lecture 4: Writing functions
+## Lecture 3: Writing functions
  
  * Basic function template
  * How to write functions
  * Messages, Warnings and Errors
  * Using functions
  * Source functions
+ 
+ ## Lecture 4: Iteration
+
+  * `for`-loops
+  * `if`-staments
+  * `map` family of functions
+  * The `{purrr}` package
+  

@@ -7,28 +7,6 @@ output:
     highlight: pygments
     widescreen: yes
 ---
-<style>
-
-.footer {
-    font-size: 16pt;
-    color: Black;
-    font-family: 'Helvetica'
-    content: attr(label);
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align:center;
-    bottom: 10px;
-    line-height: 1.9;
-    display: block;
-}
-
-</style>
-
-<div class="footer" style="margin-top;font-size:120%;"> 
-Using R in Life Sciences - January 2018 </div>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.width = 5, fig.height = 3)
@@ -42,28 +20,26 @@ root <- find_root_file(criterion = is_rstudio_project)
 ```
 
 
-## An introduction to Data Science Using R in the Life Sciences Context;
-
-*_Using R for Life Sciences_*
+## Using R for Data Analysis (urfda 2019)
 
 ```{r, readxl_sticker, echo=FALSE, out.width="300px"}
 tidyverse__sticker_file <- file.path(root, "images", "tidyverse_sticker.png" ) 
 knitr::include_graphics(path = tidyverse__sticker_file)
 ```
 
-## Course aims
+## Global course aims
 
-- Get acquainted with the Data Science Toolbox in R
-- An introduction to R and the Integrated Development Environment "RStudio"
-- Learn how to appply R-programming in every day Life Sciences data flow
-- Discover the strong graphical plotting powers of R (ggplot2)
-- Implement literate programming to report data cleaning and analysis
-- Discover R-packages in Bioconductor.com 
-- Apply the `tidyverse` packages to common data science problems and challenges 
+ - Get acquainted with the Data Science Toolbox in R
+ - An introduction to R and the Integrated Development Environment "RStudio"
+ - Learn how to appply R-programming in every day data analysis flow
+ - Discover the strong graphical plotting powers of R (ggplot2)
+ - Implement literate programming to report data cleaning and analysis
+ - Discover R-packages 
+ - Apply the `tidyverse` packages to common data science problems and challenges 
+ - Learn about functional programming in R
+ - ...
 
 ## Course schedule
-
-Five days, 2 p.m. - 7:30 p.m.
 
 Each day:
 Introduction of the daily goals, Recap of previous day
@@ -79,10 +55,12 @@ knitr::include_graphics(paste0(root, "/images/workflow_course.png"))
 knitr::include_graphics(paste0(root, "/images/r4ds.png"))
 ```
  
- * www.github.com/uashogeschoolutrecht/ur4ls
+ * www.github.com/uashogeschoolutrecht/urfda_2019
 
  * "R for Data Science" by Wickham and Grolemund, 2017
 
+# General activities per day
+For more details see "course_activities.html"
 
 ## Day 1: Introduction & Workflow 
  - Introduction Data Science
@@ -96,12 +74,14 @@ knitr::include_graphics(paste0(root, "/images/r4ds.png"))
  - `{dplyr - Data Wrangling}`
  
 ## Day 2:
+
  - Data wrangling with {dplyr}
  - Visualizations with {ggplot2}
  - Animations with {gganimate}
  - Import data {readr} & {readxl}
  
 ## Day 3: 
+
  - Strings
  - Regular expressions
  - Factors
@@ -110,35 +90,40 @@ knitr::include_graphics(paste0(root, "/images/r4ds.png"))
  - Statistics: exploring assumptions
  
 ## Day 4: Function programming in R
+
  - General programming rules  
  - Vectors
  - Pipes
  - Loops 
+ - iteration specials
  - Writing functions
- - Statistics: One-Way ANOVA
 
-## Day 5: Working with biological data (bioconductor)
- - Iteration ({purrr} package)
- - Intro to Bioconductor
- - Biological ('string') data {IRanges / seqinr}
- - Bioconductor demo 1 (Proteomics? / RNAseq? / ...?)
- - Biological data demo 2 (Dose-responses?)
- - Statistics: Case example - Repeated Measures
+## Day 5: Reproducibility
+ 
+ - Literate programming
+ - Managing many models
+ - Building R packages
+
+
+## Day 6:  
+ 
+  - Datasets and cases  
+  - Spare / buffer 
 
 ## Course materials 
 
  - All materials (scripts, slides etc) can be found at 
 
-https://github.com/uashogeschoolutrecht/ur4ls.git 
+https://github.com/uashogeschoolutrecht/urfda_2019
 
- - Free (online) book "R for data Science" by Hadley Wickam / Print copy of the boof for all participants
-
+ 
 ## Additional resources
 
  - Many online tools available
-https://github.com/hadley/r4ds
 http://r4ds.had.co.nz/
  - Primary literature and datasets for the case examples
  - R-help pages (`help.start()`)
  - http://www.Stackoverflow.com 
+ 
+ See "resources.html" for more tips
  
