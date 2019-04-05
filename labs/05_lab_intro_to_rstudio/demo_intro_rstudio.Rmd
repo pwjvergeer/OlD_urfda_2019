@@ -103,7 +103,7 @@ Choose the file that you want to import under the `Browse` button
 
 An interactive Console will appear, choose the right settings such as headers on/off, delimiter etc. 
 
-Much like in the import function from Excel you will see a prview of the datatable. 
+Much like in the import function from Excel you will see a preview of the datatable. 
 
 In the bottom right corner the appropriate R code is displayed. 
 You can copy that code to the clipboard and paste it into a script.

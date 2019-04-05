@@ -528,7 +528,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1962,NA,61.41,6.56,306330,Americas
 1962,138.1,45.42,6.75,365719,Africa
 1962,15.6,73.34,2.26,7576192,Europe
-1962,20.7,71.35,2.58,5503e3,Europe
+1962,20.7,71.35,2.58,5503000,Europe
 1962,110.6,53.98,7.52,4897428,Asia
 1962,NA,58.03,6.31,2223956,Asia
 1962,141.9,46.26,6.8,10683888,Africa
@@ -720,7 +720,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1963,92.7,56.98,6.16,29967043,Asia
 1963,NA,39.85,6.37,526936,Asia
 1963,153.5,43.1,6.68,1631763,Africa
-1963,60.4,62.26,7.23,69e3,Oceania
+1963,60.4,62.26,7.23,69000,Oceania
 1963,51.5,64.63,4.87,892571,Americas
 1963,170.9,45.47,7.13,4377636,Africa
 1963,152.6,49.35,6.1,29597047,Asia
@@ -1094,7 +1094,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1965,48.8,65.17,4.43,912419,Americas
 1965,155.7,47.31,7.06,4545340,Africa
 1965,144.1,50.96,5.95,31000167,Asia
-1965,NA,57.17,6.62,189e4,Asia
+1965,NA,57.17,6.62,1890000,Asia
 1965,120.9,48.49,7.09,8014376,Africa
 1965,NA,71.4,2.03,45261939,Europe
 1965,104.4,56.87,6.84,150318,Asia
@@ -1541,7 +1541,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1968,NA,43.9,4.96,565878,Africa
 1968,130.5,41.3,5.99,425509,Africa
 1968,NA,66.6,2.64,4622441,Asia
-1968,23.5,70.64,2.28,77611e3,Europe
+1968,23.5,70.64,2.28,77611000,Europe
 1968,120.6,49.46,6.96,8221021,Africa
 1968,38.3,70.59,2.36,8682351,Europe
 1968,NA,64.45,5.85,43100,Americas
@@ -1624,7 +1624,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1968,NA,56.15,7.33,137503,Oceania
 1968,NA,53.51,7.27,5389848,Asia
 1968,124,38.9,7.27,3975614,Africa
-1968,NA,67.51,2.42,7998e3,Europe
+1968,NA,67.51,2.42,7998000,Europe
 1968,59.3,63.78,5.9,49985,Africa
 1968,197.3,41.08,6.58,2435197,Africa
 1968,24.1,66.84,3.58,1998637,Asia
@@ -2262,7 +2262,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1972,151.3,47.15,7.94,5747633,Africa
 1972,NA,69.14,1.98,4453985,Europe
 1972,30.9,70.82,3.65,9025299,Americas
-1972,NA,73.23,2.49,628e3,Asia
+1972,NA,73.23,2.49,628000,Asia
 1972,NA,70.49,2.15,9882993,Europe
 1972,12.5,73.59,2.03,4989146,Europe
 1972,NA,53.2,6.84,179212,Africa
@@ -2669,7 +2669,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1974,100.6,55.41,5.15,127465232,Asia
 1974,110.9,56.24,6.21,31784896,Asia
 1974,68.9,58.81,7.07,11312304,Asia
-1974,17.5,72.08,3.67,3128e3,Europe
+1974,17.5,72.08,3.67,3128000,Europe
 1974,25,71.78,3.72,3239561,Asia
 1974,22.5,72.81,2.24,54961926,Europe
 1974,39,72,4.69,1989880,Americas
@@ -2890,7 +2890,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1975,NA,58.22,7.14,1479650,Asia
 1975,NA,72.07,2.5,554262,Europe
 1975,109.9,56.56,6.17,17854614,Africa
-1975,178,47.06,6.55,10405e3,Africa
+1975,178,47.06,6.55,10405000,Africa
 1975,63.4,55.51,6.65,905647,Africa
 1975,159.9,47.05,5.89,13313487,Asia
 1975,10.5,74.49,1.66,13611064,Europe
@@ -2934,7 +2934,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1975,101.6,51.94,6.82,517100,Africa
 1975,8.7,74.95,1.77,8192693,Europe
 1975,11.2,74.86,1.67,6356178,Europe
-1975,59.1,62.95,7.47,7564e3,Asia
+1975,59.1,62.95,7.47,7564000,Asia
 1975,106.7,63.08,6.4,3412819,Asia
 1975,118.2,52.19,6.75,15980265,Africa
 1975,57.6,62.24,4.49,42334954,Asia
@@ -3869,7 +3869,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1980,34.3,67.89,3.28,1085308,Americas
 1980,69.2,64.41,5.35,6368169,Africa
 1980,90.2,61.74,4.36,43905790,Asia
-1980,96.5,61.9,5.01,2861e3,Asia
+1980,96.5,61.9,5.01,2861000,Asia
 1980,127.7,52.01,7.1,12547754,Africa
 1980,23,69.33,1.98,49968811,Europe
 1980,28.9,66.91,5.42,1016789,Asia
@@ -5719,7 +5719,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1990,26.9,69.1,2.45,1221904,Americas
 1990,44.3,71.8,3.54,8232797,Africa
 1990,55.8,68.1,3.08,53994605,Asia
-1990,72.5,63.9,4.35,3668e3,Asia
+1990,72.5,63.9,4.35,3668000,Asia
 1990,111.4,50.7,7.09,17384369,Africa
 1990,16.7,70,1.87,51370009,Europe
 1990,14.1,70.6,4.39,1811458,Asia
@@ -5801,7 +5801,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1991,10.7,77.1,1.39,10217782,Europe
 1991,NA,65.1,2.42,55786,Americas
 1991,17.4,70.2,3.7,96455,Americas
-1991,57.3,64,5.53,9385e3,Americas
+1991,57.3,64,5.53,9385000,Americas
 1991,137.3,52.3,6.54,6367110,Africa
 1991,132.9,51.7,6.61,1080191,Africa
 1991,45.5,64.3,2.47,717502,Americas
@@ -6758,7 +6758,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1996,151.9,50.4,6.11,2197801,Africa
 1996,27.4,74.6,3.54,4970391,Africa
 1996,12,70.2,1.57,3602164,Europe
-1996,4.9,77.1,1.72,414e3,Europe
+1996,4.9,77.1,1.72,414000,Europe
 1996,NA,76.78,1.18,405231,Asia
 1996,19.5,72.1,1.92,1958303,Europe
 1996,83.1,57.6,5.92,13882646,Africa
@@ -6950,7 +6950,7 @@ year,infant_mortality,life_expectancy,fertility,population,continent
 1997,117.1,45.8,6.41,10260421,Africa
 1997,10.7,72.8,3.19,21808125,Asia
 1997,46.7,70.8,4.02,265067,Asia
-1997,122.6,52.2,6.9,10168e3,Africa
+1997,122.6,52.2,6.9,10168000,Africa
 1997,7.6,78.8,1.82,378789,Europe
 1997,76.3,62,5.57,2476188,Africa
 1997,19.8,70.7,2.07,1154137,Africa
