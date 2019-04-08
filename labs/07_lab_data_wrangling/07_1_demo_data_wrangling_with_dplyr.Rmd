@@ -458,7 +458,7 @@ pop_size_uncorrected <- join %>%
 ```
 
 ## Plotting two graphs in a panel
-```{r}
+```{r, fig.width=10}
 cowplot::plot_grid(pop_size_uncorrected,
                    pop_size_corrected)
 ```
@@ -528,7 +528,7 @@ Summarizing data is an important step in Exploratory Data Analysis. Especially i
 
 ## Example `dplyr::summarise()`
 ```{r}
-join %>%
+summary_plot <- join %>%
   group_by(country) %>%
   summarise(total_pertussis_cases = sum(annual_pertussis_cases)) %>%
   ggplot(aes(x = reorder(as_factor(country), total_pertussis_cases),
@@ -537,6 +537,11 @@ join %>%
   coord_flip() +
   ylab("Total pertussis cases from 1990 - 2013") +
   xlab("Country")
+```
+
+## The summary plot
+```{r, echo=FALSE, fig.height=5}
+summary_plot
 ```
 Reporting bias?
  
@@ -589,13 +594,20 @@ Create a code chuk below that:
  
 ## **ONE POSSIBLE SOLUTION** 
 ```{r}
-gapminder %>%
+plot <- gapminder %>%
   group_by(year, continent) %>%
   summarise(total_population = sum(population),
-            total_gdp = sum(gdp)) %>%
+            total_gdp = sum(gdp), na.rm = TRUE) %>%
     ggplot(aes(x = year,
                y = total_gdp)) +
-  geom_point(aes(colour = continent, size = total_population))
+  geom_point(aes(colour = continent, size = total_population)) +
+  coord_flip()
+
+```
+
+## The plot
+```{r, fig.height=5}
+plot
 ```
  
 ## ONE MORE, **Discuss with you neighbour**  
@@ -656,8 +668,8 @@ gapminder %>%
 names(join)
 join %>%
   filter(country == "Netherlands" |
-         country == "Belarus") %>% 
-    ggplot(aes(x = annual_pertussis_cases,
+         country == "Belarus") %>%
+      ggplot(aes(x = annual_pertussis_cases,
                y = infant_mortality)) +
       geom_point(aes(colour = year)) +
   facet_wrap(~ country, scales = "free")

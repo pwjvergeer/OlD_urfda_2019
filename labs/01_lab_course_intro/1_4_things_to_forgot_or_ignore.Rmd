@@ -1,0 +1,40 @@
+---
+title: "Things to forget"
+author: "Marc A.T. Teunis"
+date: "4/7/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Demo's and tutorials
+ - Are great resources to learn R
+ - Sometimes they use the best practices
+ - Sometimes they clearly do not
+ 
+## Four things you will have to forget (or ignore)
+I will provide a good, programming-sound, alternative
+
+ 1. Please do not use `setwd()`
+ 2. Please do not attach anything with the `attach()` function
+ 3. Please do not use the `=` (equal to) assignment when creating variables
+ 4. Please do not use the `stringsAsFactors = FALSE` `in read.csv()`, use `readr::read_...()` functions instead
+ 
+## Setting the working directory with setwd() 
+The `setwd()` function sets the working dierectory to the current directory. I will show you why not to use this.
+
+
+```{r}
+name <- "marc"
+dir.create(name)
+
+
+```
+
+## Alternative
+
+ 
+ 
+ 
