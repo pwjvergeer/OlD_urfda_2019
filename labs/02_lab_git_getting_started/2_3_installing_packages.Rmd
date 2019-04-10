@@ -33,7 +33,7 @@ The alternative and BETTER WAY is to programmatically install packages:
 
 ```{r, eval=FALSE}
 # installs package "ggplot2"
-install.packages("ggplot2")
+# install.packages("ggplot2")
 ```
 
 ```{r}
@@ -67,7 +67,7 @@ random_scatter
 ## The tidyverse
 Let's install a set of packages that (at least a few of them) you will almost certainly use in every analysis:
 ```{r, eval = FALSE, fig.width=8}
-install.packages("tidyverse")
+# install.packages("tidyverse")
 library(tidyverse)
 ```
 
@@ -166,15 +166,4 @@ Other resources:
 https://www.bioconductor.org/help/course-materials/ 
 https://www.rstudio.com/online-learning/
 https://www.coursera.org/learn/r-programming
-
-## R has many packages
-This graph shows the current number of packages 
-
-```{r, echo = FALSE, fig.widt=10}
-library(png)
-library(grid)
-img_pkgs <- readPNG(source = paste0(root, "/images/cran_pkgs_published.png"))
- grid.raster(img_pkgs)
-
-```
 

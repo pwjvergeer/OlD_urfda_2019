@@ -150,7 +150,7 @@ gapminder <- gapminder %>%
   mutate(lifeExp_months = lifeExp * 24)
 ```
 
-_Mutate new varibles on the basis of old one, do not replace the old variable_
+_Mutate new variables on the basis of old one, do not replace the old variable_
 
 ## Data Governance 
 
