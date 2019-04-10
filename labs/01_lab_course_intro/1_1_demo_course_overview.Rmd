@@ -46,7 +46,6 @@ Introduction of the daily goals, Recap of previous day
  
 ```{r, echo = FALSE, out.width="400px"}
 knitr::include_graphics(paste0(root, "/images/workflow_course.png"))
-?knitr::include_graphics
 ```
 
 ## Course Materials
@@ -71,7 +70,7 @@ For more details see "course_activities.html"
  - Intro to R
  - Writing code / Workflow
  - RMarkdown documents
- - `{dplyr - Data Wrangling}`
+ - (`{dplyr - Data Wrangling}`)
  
 ## Day 2:
 
@@ -88,6 +87,7 @@ For more details see "course_activities.html"
  - Tidy data with {tidyr}
  - Exploratory data analysis
  - Statistics: exploring assumptions
+ - Getting to models (resources)
  
 ## Day 4: Function programming in R
 
@@ -126,4 +126,14 @@ http://r4ds.had.co.nz/
  - http://www.Stackoverflow.com 
  
  See "resources.html" for more tips
+ 
+## Lab structure #1
+```{r}
+fs::dir_tree(here::here("labs", "01_lab_course_intro"))
+```
+
+## ## Lab structure #6
+```{r}
+fs::dir_tree(here::here("labs", "06_lab_intro_to_r"))
+```
  

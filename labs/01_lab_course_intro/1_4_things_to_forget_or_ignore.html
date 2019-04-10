@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Course Activities</title>
+  <title>Things to forget or ignore</title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -9,6 +9,7 @@
 
 
 
+  <meta name="date" content="2019-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Course Activities',
+                title: 'Things to forget or ignore',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -3115,114 +3116,139 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">3/27/2019</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2019-04-09</p>
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>Course Overview (this document)</h2></hgroup><article  id="course-overview-this-document">
+<slide class=""><hgroup><h2>Demo’s and tutorials</h2></hgroup><article  id="demos-and-tutorials">
 
 <ul>
-<li>The course overview provides a summary of the course. It is a document that is fluid throughout the course. It is the current document before you. I will make changes to this as we go along to personalize the course to your needs as much as possible.</li>
-<li>The course workflow will be addressed</li>
-<li>If applicable the Course Exam will be addressed (Bachelor Course Only)</li>
-<li>We will get to know some of the conventions used in the course materials to aid readibility and completion of the exercises</li>
+<li>Are great resources to learn R</li>
+<li>Sometimes they use the best practices</li>
+<li>Sometimes they clearly do not</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Menti.com</h2></hgroup><article  id="menti.com">
+</article></slide><slide class=""><hgroup><h2>Four things you will have to forget (or ignore)</h2></hgroup><article  id="four-things-you-will-have-to-forget-or-ignore">
 
-<div style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;">
-<iframe allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/embed/45fa38401d60a4886d2e21c9f2ebc240/d2a9c72548cf" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
-
-</iframe></div>
-
-</article></slide><slide class=""><hgroup><h2>Labs</h2></hgroup><article  id="labs">
-
-<ul>
-<li>Each day (lesson) consists of several labs</li>
-<li>Is a combination of direct instruction and introduction to a new topic<br/></li>
-<li>Each topic is accompanied by exercises.</li>
-<li>Some of the exercise will be addressed during instruction.</li>
-<li>Some exercises will have to be prepared outside of class.</li>
-<li>Each consecutive lesson will follow up on the previous exercises.</li>
-<li>During the follow up solution for the problems that were encountered during the preparation of the exercises will be provided</li>
-<li><strong>There is always room for questions!</strong></li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Cases</h2></hgroup><article  id="cases">
-
-<ul>
-<li>During each lesson I will ask for a case from the participants</li>
-<li>Some problem you are working on that is relevant for the topics in that day’s class</li>
-<li>If possible I will prepare a short demo, workflow or provide some tips on how to tackle the case problem</li>
-<li>I will ask for your input on the matter</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Day 1</h2></hgroup><article  id="day-1">
+<p>During this course, I will provide good alternatives</p>
 
 <ol>
-<li>Course overview, Datamanagement</li>
-<li>Git, Github.com<br/></li>
-<li>Visualization examples in R RStudio</li>
-<li>RMarkdown</li>
-<li>R basics and Getting Help</li>
-<li>Intro to R</li>
+<li>Please never use <code>setwd()</code></li>
+<li>Please do not attach anything with the <code>attach()</code> function</li>
+<li>Please do not use the <code>=</code> (equal to) assignment when creating variables</li>
+<li>Please do not use the <code>stringsAsFactors = FALSE</code> <code>in read.csv()</code>, use <code>readr::read_...()</code> functions instead</li>
 </ol>
 
-</article></slide><slide class=""><hgroup><h2>Lab 1 Course intro</h2></hgroup><article  id="lab-1-course-intro">
+</article></slide><slide class=""><hgroup><h2>Setting the working directory with setwd()</h2></hgroup><article  id="setting-the-working-directory-with-setwd">
+
+<p>The <code>setwd()</code> function sets the working dierectory to the current directory. I will show you why not to use this.</p>
+
+<p>Imagine you are working in the Documents folder in Windows</p>
+
+<pre class = 'prettyprint lang-r'>library(here)
+
+name &lt;- here::here(&quot;Users&quot;, &quot;Your Name Here&quot;, &quot;Documents&quot;)
+dir.create(here(&quot;Users&quot;))
+dir.create(here(&quot;Users&quot;, &quot;Your Name Here&quot;))
+dir.create(here(&quot;Users&quot;, &quot;Your Name Here&quot;, &quot;Documents&quot;))</pre>
+
+</article></slide><slide class=""><hgroup><h2>Let’s create a file with some dummy data</h2></hgroup><article  id="lets-create-a-file-with-some-dummy-data">
+
+<pre class = 'prettyprint lang-r'>tibble(a = rnorm(100), b = runif(100)) %&gt;%
+        write_csv(path = file.path(name, &quot;dummy.csv&quot;))</pre>
+
+</article></slide><slide class=""><hgroup><h2>Use setwd</h2></hgroup><article  id="use-setwd">
+
+<p>Use the code below – Replace your own name at &ldquo;Your Name Here&rdquo;</p>
+
+<pre class = 'prettyprint lang-r'>path &lt;- here(&quot;Users&quot;, &quot;Your Name Here&quot;, &quot;Documents&quot;)
+setwd(path)
+read_csv(&quot;dummy.csv&quot;)
+
+## Look at where we are
+getwd()</pre>
+
+<p>What do you think, will this code run on another computer?</p>
+
+</article></slide><slide class=""><hgroup><h2>Alternative to <code>setwd()</code></h2></hgroup><article  id="alternative-to-setwd">
 
 <ul>
-<li>We will discuss some of the conventions used in the slides and talk a little bit more about R and how to get additional resources for learning to use R</li>
-<li>You will intiate your first R-package</li>
-<li>To find some of the resources used in this course and for progessing you R learning: look at the &ldquo;resources&rdquo; file in the root.</li>
-<li>In RStudio, important tools for reproducibility of (data)-research are build-in: <code>{rmarkdown}</code>, RStudio Projects, the <code>{here}</code> package</li>
-<li>Every data-project has files, and often many, many files</li>
-<li>We will see a short list of rules to keep track of things and to aid reproducibility and tracebility</li>
-<li>You will learn about the structure of an R package to aid reproducibility</li>
+<li>We will learn about some of the alternatives for using <code>setwd()</code></li>
+<li>The packages <code>rprojroot</code>, and the <code>here</code> package, together with the function <code>file.path()</code> are good alternatives.</li>
+<li>I will explain how to use them in the labs on RMarkdown and importing data</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Lab 2 Git/github.com</h2></hgroup><article  id="lab-2-gitgithub.com">
+</article></slide><slide class=""><hgroup><h2><code>attach()</code></h2></hgroup><article  id="attach">
+
+<p>In some of the older R code around you will find the frequent use of the <code>attach()</code> function. This function puts R objects in the search path. This means they are always available for the user. Using <code>attach()</code> breaks portability of the code. Be explicit and use relative paths. If you forget to attach or attach multiple times, the code breaks. This makes running code with <code>attach()</code> in it fragile</p>
+
+</article></slide><slide class=""><hgroup><h2>There are several reasons why NOT to use <code>attach()</code></h2></hgroup><article  id="there-are-several-reasons-why-not-to-use-attach">
 
 <ul>
-<li>Git is used to keep track of changes, collaborate and reproduce.</li>
-<li>Github is used to share code (any code), data and other files and find additional great R resources and packages<br/></li>
-<li>Git/Github are is a widely used platform for the development of software</li>
+<li>You may have multiple object in your session carrying the same name, it is easy to mix things up</li>
+<li>When you attach a dataset it attaches the values (in e.g. a dataframe column) as they were when they were attached. Any changes in between are not attached: Let’s illustrate this with an example</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Lab 3 Visualizations (demo)</h2></hgroup><article  id="lab-3-visualizations-demo">
+</article></slide><slide class=""><hgroup><h2>Assigning variables</h2></hgroup><article  id="assigning-variables">
 
-<ul>
-<li>Are a great way to get inspired on the possibilities for using R</li>
-<li>Are great for exploring new datasets</li>
-<li>Are a great way to learn (new) ways of writing R code</li>
-</ul>
+<p>To assign a variable in R you can use:</p>
 
-</article></slide><slide class=""><hgroup><h2>Lab 4 RMarkdown</h2></hgroup><article  id="lab-4-rmarkdown">
+<p><code>=</code> or <code>&lt;-</code></p>
 
-<ul>
-<li>All Exercises and demos are RMarkdown files</li>
-<li>We will study this format</li>
-<li>During this lab you will learn (some of) the possibilities of RMarkdown</li>
-<li>You will create your own RMarkdown and push it to you Github repository</li>
-</ul>
+<p><code>=</code> has a special meaning and is reserved for naming an argument in a function. Always use <code>&lt;-</code> when you want to assign a value to a variable.</p>
 
-</article></slide><slide class=""><hgroup><h2>Lab 5 RStudio</h2></hgroup><article  id="lab-5-rstudio">
+<p>Remmber: <code>&lt;-</code> always works for assignment, <code>=</code> does not always work for assignment.</p>
 
-<ul>
-<li>We will use RStudio Server as an Integrated Development Environment (IDE) for developing in R</li>
-<li>RStudio is one of most widely used IDEs</li>
-<li>RStudio integrates with the <code>Tidyverse</code></li>
-<li>RStudio enables easy creation of your own R package</li>
-</ul>
+</article></slide><slide class=""><hgroup><h2><code>stringsAsFactors = FALSE</code></h2></hgroup><article  id="stringsasfactors-false">
 
-</article></slide><slide class=""><hgroup><h2>Lab 6 Intro to R</h2></hgroup><article  id="lab-6-intro-to-r">
+<p>Let’s read a dataset <code>csv</code> file:</p>
 
-<ul>
-<li>You will learn the basics about R-commands (called <code>functions</code> in R)</li>
-<li>We will see the most common objects (Vectors, Lists, Dataframe, Matrix)</li>
-<li>You will learn how the help function for functions and packages works</li>
-</ul>
+<pre class = 'prettyprint lang-r'>library(here)
+library(readr)
+example &lt;- read.csv(here(&quot;data&quot;, &quot;EE controls.csv&quot;), sep = &quot;;&quot;)
+str(example, 3)
+## all character strings are converted to factors
+example_no_fct &lt;- read.csv(
+        here(&quot;data&quot;, &quot;EE controls.csv&quot;), 
+        sep = &quot;;&quot;, 
+        stringsAsFactors = FALSE)
+## characters are still characters
+str(example_no_fct, 3)
+example_tibble &lt;- read_csv2(here(&quot;data&quot;, &quot;EE controls.csv&quot;))</pre>
 
-<p>## Day 2</p></article></slide>
+</article></slide><slide class=""><hgroup><h2><code>{readr}</code> functions</h2></hgroup><article  id="readr-functions">
+
+<p>readr functions never convert to factors, except if explicitly told:</p>
+
+<pre class = 'prettyprint lang-r'>example_tibble &lt;- read_delim(
+        here::here(&quot;data&quot;, &quot;EE controls.csv&quot;), 
+        delim = &quot;;&quot;,
+        col_types = cols(
+                Chemical = col_factor()
+                )
+        )
+
+example_tibble</pre>
+
+<pre >## # A tibble: 412 x 19
+##      Lab Chemical Class Vehicle Compound Exp     Rep Batch BatchNr
+##    &lt;dbl&gt; &lt;fct&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+##  1     1 Citral   W     AOO            1 BD A      1 EST-~       1
+##  2     1 Citral   W     AOO            1 BD A      2 EST-~       1
+##  3     1 Citral   W     AOO            1 BD B      1 EST-~       4
+##  4     1 Citral   W     AOO            1 BD B      2 EST-~       4
+##  5     1 Citral   W     AOO            1 FD 1      1 EST-~       6
+##  6     1 Citral   W     AOO            1 FD 1      2 EST-~       6
+##  7     1 Citral   W     AOO            1 FD 2      1 EST-~       9
+##  8     1 Citral   W     AOO            1 FD 2      2 EST-~       9
+##  9     1 p-Pheny~ S     AOO            2 BD A      1 EST-~       1
+## 10     1 p-Pheny~ S     AOO            2 BD A      2 EST-~       1
+## # ... with 402 more rows, and 10 more variables: UnE_viability &lt;dbl&gt;,
+## #   UneIL1a &lt;dbl&gt;, UnEFoldI &lt;dbl&gt;, VC_viability &lt;dbl&gt;, VC_IL1a &lt;dbl&gt;,
+## #   VH_FoldI &lt;dbl&gt;, PC_viability &lt;dbl&gt;, PC_IL1a &lt;dbl&gt;, PC_FoldI &lt;dbl&gt;,
+## #   ReseanRep &lt;chr&gt;</pre>
+
+<pre class = 'prettyprint lang-r'>## only Chemical is converted to a factor</pre></article></slide>
 
 
   <slide class="backdrop"></slide>

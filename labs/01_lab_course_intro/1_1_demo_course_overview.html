@@ -9,7 +9,7 @@
 
 
 
-  <meta name="date" content="2019-04-04" />
+  <meta name="date" content="2019-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3116,7 +3116,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">2019-04-04</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2019-04-09</p>
           </hgroup>
   </slide>
 
@@ -3168,7 +3168,7 @@ slide:not(.current) .plotly.html-widget{
 <li>Intro to R</li>
 <li>Writing code / Workflow</li>
 <li>RMarkdown documents</li>
-<li><code>{dplyr - Data Wrangling}</code></li>
+<li>(<code>{dplyr - Data Wrangling}</code>)</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Day 2:</h2></hgroup><article  id="day-2">
@@ -3189,6 +3189,7 @@ slide:not(.current) .plotly.html-widget{
 <li>Tidy data with {tidyr}</li>
 <li>Exploratory data analysis</li>
 <li>Statistics: exploring assumptions</li>
+<li>Getting to models (resources)</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Day 4: Function programming in R</h2></hgroup><article  id="day-4-function-programming-in-r">
@@ -3234,7 +3235,42 @@ slide:not(.current) .plotly.html-widget{
 <li><a href='http://www.Stackoverflow.com' title=''>http://www.Stackoverflow.com</a></li>
 </ul>
 
-<p>See &ldquo;resources.html&rdquo; for more tips</p></article></slide>
+<p>See &ldquo;resources.html&rdquo; for more tips</p>
+
+</article></slide><slide class=""><hgroup><h2>Lab structure #1</h2></hgroup><article  id="lab-structure-1">
+
+<pre class = 'prettyprint lang-r'>fs::dir_tree(here::here(&quot;labs&quot;, &quot;01_lab_course_intro&quot;))</pre>
+
+<pre >## D:/r_projects/urfda_2019/labs/01_lab_course_intro
+## +-- 1_1_demo_course_overview.html
+## +-- 1_1_demo_course_overview.Rmd
+## +-- 1_2_demo_course_conventions.html
+## +-- 1_2_demo_course_conventions.Rmd
+## +-- 1_3_course_activities.html
+## +-- 1_3_course_activities.Rmd
+## +-- 1_4_things_to_forget_or_ignore.html
+## \-- 1_4_things_to_forget_or_ignore.Rmd</pre>
+
+</article></slide><slide class=""><hgroup><h2>## Lab structure #6</h2></hgroup><article  id="lab-structure-6">
+
+<pre class = 'prettyprint lang-r'>fs::dir_tree(here::here(&quot;labs&quot;, &quot;06_lab_intro_to_r&quot;))</pre>
+
+<pre >## D:/r_projects/urfda_2019/labs/06_lab_intro_to_r
+## +-- 6_1_demo_intro_to_r.html
+## +-- 6_1_demo_intro_to_r.Rmd
+## +-- 6_1_demo_intro_to_r_files
+## |   \-- figure-html
+## |       \-- unnamed-chunk-12-1.png
+## +-- 6_2_exercise_hello_world.html
+## +-- 6_3_exercise_r_basics.html
+## +-- 6_3_exercise_r_basics_files
+## |   \-- figure-html
+## |       \-- unnamed-chunk-16-1.png
+## +-- 6_4_exercise_vectors.html
+## +-- 6_5_exercise_matrix_dataframes.html
+## +-- render_and_remove_answers.R
+## +-- retrieve_rmd_from_answers.R
+## \-- rmd_copied_to.csv</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
