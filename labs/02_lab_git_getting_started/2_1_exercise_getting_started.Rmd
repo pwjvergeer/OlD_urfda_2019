@@ -49,6 +49,14 @@ To run the code chunks: set the cursor between the start ` ```{r} ` and the end
 ## R & RStudio
 Throughout this course you will be working with the open source programs R and RStudio. RStudio is an integrated development environment (IDE) that allows you to use R in an interactive (and graphical) way, write your scripts/code and manage your workspace. R and Rstudio are already pre-installed on the course laptops, but for home use can be downloaded for free from http://www.r-project.org and http://www.rstudio.com.
 
+## Github account and setting github credentials in RStudio
+
+ - Create an account for www.github.com
+ - Install the package `{gitr}` (M. Teunis, 2019) using the following code:
+ 
+```{r, eval = FALSE} 
+devtools::install_github("uasghogeschoolutrecht/gitr") 
+```
 ## Getting the materials for the course:
 
  1. Go the following url: https://github.com/uashogeschoolutrecht/urfda_2019
