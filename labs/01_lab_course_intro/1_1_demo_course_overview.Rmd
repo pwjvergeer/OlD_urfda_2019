@@ -116,7 +116,10 @@ For more details see "course_activities.html"
 
 https://github.com/uashogeschoolutrecht/urfda_2019
 
+ - Getting R and RStudio: 
  
+ login to: http://rcourses.hudatascience.nl with the credentials provided
+
 ## Additional resources
 
  - Many online tools available

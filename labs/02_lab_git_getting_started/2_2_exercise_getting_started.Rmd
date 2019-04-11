@@ -79,37 +79,41 @@ To see what the current working directory is, you can execute the command
 
 in the Console window. Try it now!
 
-If all went well the latter half of the working directory will state "/uu_r_course"
+If all went well the latter half of the working directory will state "/urfda_2019"
 
 ## Creating a new R script
-For most analyses/projects, it is best to start by creating an R script file that will contain all the steps taken to get to a certain result. Initially this might be more like a scrapbook to note down what exactly you did. Later you can then separate this more cleanly in the workflow (steps taken and/or functions executed) and separate files for function definitions, or even package definitions (the latter we will not go into here). During this course, we will create an R script file for every exercise that contains the steps of that particular exercise (for instance a file named "exercises_day1.R") and a common R script file that contains all functions that need to be reused between different exercises (for instance a file named "functions.R"). Create the first two R script files using one of the steps shown below.
+For most analyses/projects, it is best to start by creating an R script file that will contain all the steps taken to get to a certain result. Initially this might be more like a scrapbook to note down what exactly you did. 
+
+Later you can then separate this more cleanly in the workflow (steps taken and/or functions executed) and separate files for function definitions, or even package definitions. 
+
+During this course, we will create special R scripts called RMarkdown for every exercise that contains the steps of that particular exercise. 
+
+Common R scripts contains all functions that can to be reused between different exercises (for instance a file named "functions.R"). 
 
 ## Setting up package repositories
-Default RStudio has only enabled the CRAN repository, but there are other useful repositories that contain nice R packages. We will enable the Bioconductor repositories (located at http://www.bioconductor.org) as packages from these repositories are often used in molecular biology. We only need to do this once, so the next time you start Rstudio it remembers which repositories are enabled. Type in the Console window (not the R script window!) the following command: 
+Default RStudio has only enabled the CRAN repository, but there are other useful repositories that contain nice R packages. 
 
 ```{r, eval = FALSE, echo=TRUE, results='asis'}
 setRepositories(graphics=TRUE)
 ```
-This will show a popup window with the available package repositories. Select all repositories that contain "BioC" in their name and make sure you also keep the CRAN repositories selected and then press "Ok". The next time you need to install a package from any of these repositories, Rstudio automatically downloads them from these locations and installs them on your laptop (You can check this by clicking on the "install" icon in the packages window which should show all enabled repositories).
 
 ## Installing a package from a repository
 As an example package (we will be using this later on), we are going to install the "beanplot" package which allows you to easily create so called beanplots. Details of what you can do with them and how to use them, will be provided later during the course. To install the package, go to the Packages window and click on the "install" icon. This will show a popup window where you can type in the name of the package. Type in beanplot and press the "Ok" button. This will download and install the beanplot package.
 
+## Do everything programmatically
 The alternative and BETTER WAY is to programmatically install packages:
 
 ```{r, eval=FALSE, echo=TRUE}
 install.packages("beanplot")
 ```
 
-To load this library into your workspace, type in library("stringr") in the Console (or even better, in the R script window and then press the "Run" button which will execute the code on that particular line in the R script / or choose `Cntrl` and `Enter` simultaneously).
+To load this library into your workspace, type in library("beanplot") in the Console (or even better, in the R script editor window and then press the "Run" button which will execute the code on that particular line in the R script / or choose `Cntrl` and `Enter` simultaneously).
 You can now use the functions defined within this package, for instance to plot a beanplot of (not so useful) random values
 
 ```{r, echo=TRUE, fig.show='asis', results='asis'}
 library(beanplot)
 beanplot(runif(100))
 ``` 
-
-Let's install a set of packages that (at least a few of them) you will almost certainly use in every analysis:
 
 ## Getting help
 Knowing how to get help, might be one of the most important skills when learning a new programming language. In R, there are various ways to get help. 
@@ -126,8 +130,3 @@ Free material on learning R is very broadly available on the web. You can start 
 http://r4ds.had.co.nz/index.html
 
 the author Hadley Wickham is an excellent data scientist, speaker and developer at RStudio and the brain behind the "tidyverse" 
-
-## R Markdown
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
