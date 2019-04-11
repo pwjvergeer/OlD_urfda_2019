@@ -108,7 +108,7 @@ __This workshop does not cover `writing functions` in dept__
 We hope this small example got you inspired in writing more of your own functions
 
 # Let's create some R objects
-### Switch to RStudio RMarkdown document "part1_intro_to_rstudio_and_r.Rmd"
+### Switch to RStudio RMarkdown document "labs/06_intro_to_r/6_1_demo_intro_to_r.Rmd"
 
 ## _'numeric'_ vectors
 ```{r}

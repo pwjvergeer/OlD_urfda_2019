@@ -19,9 +19,7 @@ knitr::opts_chunk$set(echo = FALSE,
 ## R packages
 ```{r, echo=TRUE}
 ## CRAN
-require("stats") || utils::install.packages("stats")
 library(stats)
-require("circlize") || utils::install.packages("circlize")
 library(circlize) 
 library(pheatmap)
 library(ggplot2)
@@ -29,17 +27,11 @@ library(drc)
 library(tidyverse)
 
 ## Bionconductor
-#source("https://bioconductor.org/biocLite.R")
-# biocLite("DESeq2")
-#biocLite("GEOquery")
-#biocLite("tximport")
-#biocLite("tximportData")
-#biocLite("pasilla")
+## Example: BiocManager::install('DESeq2')
 library(DESeq2)
 library(GEOquery)
-library("tximport")
-library("readr")
-library("tximportData")
+library(tximport)
+library(tximportData)
 library(pasilla)
 library(ReactomePA)
 # biocLite("vsn")

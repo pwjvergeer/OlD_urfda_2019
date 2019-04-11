@@ -1,6 +1,6 @@
 ---
 title: "Reproducible Papers with RMarkdown"
-author: "Bryce Mecum, mecum@nceas.ucsb.edu"
+author: "Marc Teunis, adapted from Bryce Mecum"
 output:
   html_document:
     fig_caption: yes
