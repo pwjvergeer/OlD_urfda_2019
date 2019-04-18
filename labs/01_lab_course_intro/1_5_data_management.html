@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Conventions, Code and Data Management</title>
+  <title>Data Management - Demo</title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Conventions, Code and Data Management',
+                title: 'Data Management - Demo',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -30,7 +30,7 @@
       // Author information
       presenters: [
             {
-        name:  'Marc A.T. Teunis' ,
+        name:  'Marc Teunis' ,
         company: '',
         gplus: '',
         twitter: '',
@@ -105,201 +105,64 @@ slide:not(.current) .plotly.html-widget{
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>Packages</h2></hgroup><article  id="packages">
-
-<pre class = 'prettyprint lang-r'>library(usethis)
-library(devtools)
-library(gapminder)
-library(nycflights13)
-library(tidyverse)</pre>
-
-</article></slide><slide class=""><hgroup><h2>Code Style</h2></hgroup><article  id="code-style">
+<slide class=""><hgroup><h2>Files</h2></hgroup><article  id="files">
 
 <ul>
-<li>The slides in the course contain a number of style and syntax conventions.</li>
-<li>Code styles and syntax can vary</li>
-<li>Be consistent</li>
+<li>When doing data analysis you will gather A LOT OF FILES.</li>
+<li>Having no system will cause you time and will lead to loss of data and information</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Capitals vs lower case</h2></hgroup><article  id="capitals-vs-lower-case">
+</article></slide><slide class=""><hgroup><h2>File names</h2></hgroup><article  id="file-names">
 
 <ul>
-<li>Everything in lower case</li>
-<li>I use <code>snake_case</code></li>
-<li>Many people use <code>camelCase</code></li>
+<li>Use &quot;Linux&quot; style file names: &quot;snake_case.txt&quot;</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>gapminder %&gt;% names</pre>
-
-<pre >## [1] &quot;country&quot;   &quot;continent&quot; &quot;year&quot;      &quot;lifeExp&quot;   &quot;pop&quot;       &quot;gdpPercap&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>flights %&gt;% names</pre>
-
-<pre >##  [1] &quot;year&quot;           &quot;month&quot;          &quot;day&quot;            &quot;dep_time&quot;      
-##  [5] &quot;sched_dep_time&quot; &quot;dep_delay&quot;      &quot;arr_time&quot;       &quot;sched_arr_time&quot;
-##  [9] &quot;arr_delay&quot;      &quot;carrier&quot;        &quot;flight&quot;         &quot;tailnum&quot;       
-## [13] &quot;origin&quot;         &quot;dest&quot;           &quot;air_time&quot;       &quot;distance&quot;      
-## [17] &quot;hour&quot;           &quot;minute&quot;         &quot;time_hour&quot;</pre>
-
-</article></slide><slide class=""><hgroup><h2>Printing a tbl_df</h2></hgroup><article  id="printing-a-tbl_df">
-
-<pre class = 'prettyprint lang-r'>table &lt;- tibble(&quot;a_is_a_variable&quot; = c(1:5), &quot;b_is_another_variable&quot; = rnorm(5))
-table</pre>
-
-<pre >## # A tibble: 5 x 2
-##   a_is_a_variable b_is_another_variable
-##             &lt;int&gt;                 &lt;dbl&gt;
-## 1               1                -1.01 
-## 2               2                -3.04 
-## 3               3                 1.46 
-## 4               4                -0.673
-## 5               5                -0.299</pre>
-
-</article></slide><slide class=""><hgroup><h2>Variables</h2></hgroup><article  id="variables">
+</article></slide><slide class=""><hgroup><h2>A few simple rules</h2></hgroup><article  id="a-few-simple-rules">
 
 <ul>
-<li>All lower case</li>
-<li>Don&#39;t use capitals and special characters in file names</li>
+<li>Space is cheap, confusion is expensive</li>
+<li>Do everything via code</li>
+<li>Write code that runs from begin to end</li>
+<li>Never change &#39;raw&#39;-data or filename</li>
+<li>Set guidelines with the group and stick to them</li>
 </ul>
 
-<p>&quot;<code>excel_file_of_important_dataset.xlsx</code>&quot;</p>
+<p><strong>after Edna Ridge - &quot;Guerilla Analytics&quot;</strong></p>
 
-<p>DON&#39;T: &quot;<code>data file + version 12_11_2017%.xlsx</code>&quot;</p>
+</article></slide><slide class=""><hgroup><h2>Project structure</h2></hgroup><article  id="project-structure">
 
-</article></slide><slide class=""><hgroup><h2>Packages referrals</h2></hgroup><article  id="packages-referrals">
+<p>Use a flat folder structure</p>
 
-<p>Names of R packages are indicated as:</p>
+<pre class = 'prettyprint lang-r'>fs::dir_tree(here::here(&quot;participant_cases&quot;))</pre>
+
+<pre >## /home/marc_teunis/urfda_2019/participant_cases
+## ├── R
+## │   └── rotate_axis_labels.R
+## ├── Rmd
+## │   ├── exploratory_data_analysis.Rmd
+## │   ├── exploratory_data_analysis.pdf
+## │   └── exploratory_data_analysis_files
+## ├── data
+## │   └── D010_data_clean.rds
+## ├── data-raw
+## │   ├── D010
+## │   │   ├── Cursus R databse.sav
+## │   │   ├── Cursus R databse_sav_md5sum.txt
+## │   │   └── README.txt
+## │   └── data_log
+## └── doc</pre>
+
+</article></slide><slide class=""><hgroup><h2>Naming Conventions</h2></hgroup><article  id="naming-conventions">
 
 <ul>
-<li>mostly: <code>{dplyr}</code></li>
-<li>sometimes: {dplyr}</li>
-<li>not often: &quot;dplyr&quot;</li>
+<li>I use <code>snake_case</code> for variables, function names and file names</li>
+<li><code>camelCase</code> is also used</li>
+<li><code>dot.case</code> is not modern</li>
+<li>DO NOT rename files (raw-data &amp; course files)</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Explicit functions</h2></hgroup><article  id="explicit-functions">
-
-<p>When we want to be explicit about a certain function in a package:</p>
-
-<p><code>dplyr::filter()</code></p>
-
-<p>Refers to the <code>filter()</code> function in the package <code>{dplyr}</code></p>
-
-</article></slide><slide class=""><hgroup><h2>Loose code in the slides</h2></hgroup><article  id="loose-code-in-the-slides">
-
-<p>Sometimes a few lines of codes are displayed for demo purpose:</p>
-
-<p><code>four_numbers &lt;- c(1:4)</code></p>
-
-<p><code>multiply &lt;- 4*four_numbers</code></p>
-
-<p><code>sum(multiply^2)</code></p>
-
-</article></slide><slide class=""><hgroup><h2>Code blocks</h2></hgroup><article  id="code-blocks">
-
-<p>Code blocks in slides are indicated as below: The result of the code is usually also displayed</p>
-
-<pre class = 'prettyprint lang-r'>set.seed(1234)
-code_that_does_something &lt;- rnorm(1000)
-hist(code_that_does_something, main = &quot;rnorm&quot;)</pre>
-
-<p><img src="data:image/png;base64,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" width="288" /></p>
-
-</article></slide><slide class=""><hgroup><h2>Hiding code</h2></hgroup><article  id="hiding-code">
-
-<p>Sometimes it makes sense to hide the code and only display the result. This can be done by setting the code chunk options <code>echo = FALSE</code></p>
-
-<p><img src="data:image/png;base64,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" width="288" /></p>
-
-</article></slide><slide class=""><hgroup><h2>Other important chunk options</h2></hgroup><article  id="other-important-chunk-options">
-
-<ul>
-<li>Like hiding the code, we can hide the result of that code and only display the code by setting <code>results = &quot;hide&quot;</code></li>
-<li>Setting <code>eval = FALSE</code> means the chunk is not included in the slide show at all</li>
-<li>Setting <code>include = FALSE</code> means the chunk is run and the results are evaluated, but both the code and the results are not included in the slide-show/document</li>
-<li>Controlling settings for the complete document can be done in the <code>setup*</code> chunk that you will find in all Rmarkdown files from the course</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'> knitr::opts_chunk$set(echo = TRUE,
-                       message = FALSE,
-                       warning = FALSE,
-                       error = TRUE,
-                       fig.width = 5, fig.height = 3)</pre>
-
-<ul>
-<li>There are many chunk options. Some we will see in later lessons</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Replacing old, creating new variables</h2></hgroup><article  id="replacing-old-creating-new-variables">
-
-<pre class = 'prettyprint lang-r'>## replacing lifeExp in years for lifeExp in months
-gapminder$lifeExp &lt;- (gapminder$lifeExp*24)
-
-## instead create a new variable in the dataframe
-gapminder &lt;- gapminder %&gt;%
-  mutate(lifeExp_months = lifeExp * 24)</pre>
-
-<p><em>Mutate new variables on the basis of old one, do not replace the old variable</em></p>
-
-</article></slide><slide class=""><hgroup><h2>R packages</h2></hgroup><article  id="r-packages">
-
-<ul>
-<li>R packages are self-contained pieces of R code that allow easy sharing of R implementations</li>
-<li>They follow a strict structure</li>
-<li>They allow for versioning</li>
-<li>The can be tested (unit tests)</li>
-<li>They can be distributed (CRAN, Bioconductor, Github, Bitbucket, &#8230;)</li>
-<li>They can be made to fit multiple Operating Sytems</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>There are many R packages</h2></hgroup><article  id="there-are-many-r-packages">
-
-</article></slide><slide class=""><hgroup><h2>Building an R package</h2></hgroup><article  id="building-an-r-package">
-
-<p>During the course we will gradually build our own R package as a demonstration that it is actually not so difficult as it sounds.</p>
-
-</article></slide><slide class=""><hgroup><h2>Initiate a package</h2></hgroup><article  id="initiate-a-package">
-
-<p>Initiate a package skeleton with the following command:</p>
-
-<pre class = 'prettyprint lang-r'>library(usethis)
-usethis::create_package(path = file.path(&quot;../courser&quot;))</pre>
-
-<p>A new RStudio Project Session will open and will provide you with a skeleton of a new package called &quot;courser&quot;.</p>
-
-</article></slide><slide class=""><hgroup><h2>Adding content to the package</h2></hgroup><article  id="adding-content-to-the-package">
-
-<p>As the course continues we will start filling this package skeleton with functions and data.</p>
-
-<p>We will take three more steps to start with our package:</p>
-
-</article></slide><slide class=""><hgroup><h2>1. Package description</h2></hgroup><article  id="package-description">
-
-<p>Look at the file named &quot;DESCRIPTION&quot;. Provide some basic information about yourself and what the package is intended for. Fill in the fields:</p>
-
-<ul>
-<li><code>Title</code>; Provide a short description</li>
-<li><code>Authors@R</code>; provide your name and email-address (if you want) Leave the rest unchanged</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>2. Add a package dependency</h2></hgroup><article  id="add-a-package-dependency">
-
-<p>Let&#39;s add our first dependency. The first dependecy that we will add is a package that we will use for data manipulation. It is called <code>{dplyr}</code> and we will use it very often. It makes sense to add this package as a dependency to our own package. The following code does that</p>
-
-<pre class = 'prettyprint lang-r'>usethis::use_package(package = &quot;dplyr&quot;)</pre>
-
-</article></slide><slide class=""><hgroup><h2>3. Building a package</h2></hgroup><article  id="building-a-package">
-
-<p>To build the package run</p>
-
-<pre class = 'prettyprint lang-r'>devtools::document(pkg = file.path(&quot;../courser&quot;))</pre>
-
-<p>Than run:</p>
-
-<pre class = 'prettyprint lang-r'>system(&quot;R CMD INSTALL --preclean --no-multiarch --with-keep.source ../courser&quot;)</pre>
-
-</article></slide><slide class=""><hgroup><h2><strong>CONGRATULATIONS!!</strong></h2></hgroup><article  id="congratulations">
-
-<p>You have juist build your own R package. We can now start adding functionality to it. We will do so as the course progresses.</p></article></slide>
+</article></slide><slide class=""><hgroup><h2>Recieving Data</h2></hgroup><article  id="recieving-data"></article></slide>
 
 
   <slide class="backdrop"></slide>

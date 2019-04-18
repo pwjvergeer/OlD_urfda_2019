@@ -128,18 +128,6 @@ hist(code_that_does_something, main = "rnorm")
  
  * There are many chunk options. Some we will see in later lessons
 
-## Data and file management
-
- * Data for can be found in the "./data" folder of the course project
- * Sometime data needs to be downloaded from the internet. Usually the code is provided, but sometimes you will have to write a few lines of code to download data for e.g. an exercise or a case study. 
- * Many examples are with build-in data (e.g. `mtcars`, `gapminder`)
-
-## Directions for recieving and gathering data
-
-* **NEVER EVER** change a value of an original (RAW) dataset
-* Add new variables to the dataset with recognizable names:
-* Never change a file name of a raw dataset; this will cause tracibility of that file to break.
-
 ## Replacing old, creating new variables
 ```{r, eval=FALSE}
 ## replacing lifeExp in years for lifeExp in months
@@ -151,27 +139,6 @@ gapminder <- gapminder %>%
 ```
 
 _Mutate new variables on the basis of old one, do not replace the old variable_
-
-## Data Governance 
-
-WIKIPEDIA: 12-05-2017:
-
- * Is a control that ensures that the data entry by an operations team member or by automated processes meets precise standards, 
- * The data governor uses data quality monitoring against production data to communicate errors in data for corrective action. 
- * Is used by organizations to exercise control over processes and methods used by their data stewards and data custodians in order to improve data quality.
- * Is a set of processes that ensures that important data assets are formally managed throughout the enterprise. 
- * Esures that data can be trusted and that people can be made accountable for any adverse event that happens because of low data quality. 
- * Is about putting people in charge of fixing and preventing issues with data so that the enterprise can become more efficient. 
- * Also describes an evolutionary process for a company, altering the company’s way of thinking and setting up the processes to handle information so that it may be utilized by the entire organization. 
- * It’s about using technology when necessary in many forms to help aid the process. When companies desire, or are required, to gain control of their data, they empower their people, set up processes and get help from technology to do it
-
-## Programming in Data Govenance
-
- * Programming tools like R can aid governance of data
- * It helps debudding and finding errors, 
- * But can also introduce errors!!
- * Code is reproducible and sharable
- * Code helps communication about data and what happened to the data (in terms of gathering, cleaning, combining, filtering, visualizing)
 
 ## R packages
 
