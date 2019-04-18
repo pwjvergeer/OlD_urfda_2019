@@ -1,5 +1,6 @@
 ---
-title: "Course overview"
+title: "Using R for Data Analysis"
+subtitle: "Course Overview"
 author: "Marc A.T. Teunis"
 date: "`r Sys.Date()`"
 output:
