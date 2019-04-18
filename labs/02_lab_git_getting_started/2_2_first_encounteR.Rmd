@@ -5,6 +5,24 @@ date: '`r Sys.Date()`'
 output: html_document
 ---
 
+```{r, test_plot, fig.height=20, fig.width=10, units = "dpi", res = 300}
+library(tidyverse)
+
+
+x <- rnorm(100)
+y <- rnorm(100)
+
+df <- tibble(x = x,
+             y = y)
+
+df %>%
+  ggplot(aes(x = x,
+             y = y)) +
+  geom_point(colour = "red", size = 3, shape = 22)
+
+```
+
+
 ```{r, root_1, include=FALSE}
 ## defines the root of the project for later use
 require("rprojroot") || utils::install.packages("rprojroot")

@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width = 5, fig.height = 3)
+knitr::opts_chunk$set(echo = FALSE, fig.width = 5, fig.height = 3)
 ```
 
 ```{r, root_1, include=FALSE}
