@@ -58,7 +58,7 @@ presentation_files <- list.files(path = file.path(root, "presentations"), full.n
  - If possible I will prepare a short demo, workflow or provide some tips on how to tackle the case problem
  - I will ask for your input on the matter
  
-## Day 1
+# Day 1
 
  1. Course overview, Datamanagement 
  2. Git, Github.com  
@@ -110,7 +110,14 @@ presentation_files <- list.files(path = file.path(root, "presentations"), full.n
  - We will see the most common objects (Vectors, Lists, Dataframe, Matrix)
  - You will learn how the help function for functions and packages works
 
- ## Day 2  
+# Day 2  
+
+## Activities
+
+ - Intro, file management, course conventions
+ - Continue lab 6
+ - Start with Data wrangling - lab 7
+ - Start with Visualizations - lab 8
  
 
 

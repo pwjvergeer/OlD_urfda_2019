@@ -9,7 +9,7 @@
 
 
 
-  <meta name="date" content="2019-04-10" />
+  <meta name="date" content="2019-04-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,7 +101,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">2019-04-10</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2019-04-18</p>
           </hgroup>
   </slide>
 
@@ -149,11 +149,11 @@ table</pre>
 <pre >## # A tibble: 5 x 2
 ##   a_is_a_variable b_is_another_variable
 ##             &lt;int&gt;                 &lt;dbl&gt;
-## 1               1                 1.20 
-## 2               2                -0.705
-## 3               3                 0.452
-## 4               4                -0.792
-## 5               5                 1.82</pre>
+## 1               1                -1.01 
+## 2               2                -3.04 
+## 3               3                 1.46 
+## 4               4                -0.673
+## 5               5                -0.299</pre>
 
 </article></slide><slide class=""><hgroup><h2>Variables</h2></hgroup><article  id="variables">
 
@@ -229,22 +229,6 @@ hist(code_that_does_something, main = &quot;rnorm&quot;)</pre>
 <li>There are many chunk options. Some we will see in later lessons</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Data and file management</h2></hgroup><article  id="data-and-file-management">
-
-<ul>
-<li>Data for can be found in the &quot;./data&quot; folder of the course project</li>
-<li>Sometime data needs to be downloaded from the internet. Usually the code is provided, but sometimes you will have to write a few lines of code to download data for e.g. an exercise or a case study.</li>
-<li>Many examples are with build-in data (e.g. <code>mtcars</code>, <code>gapminder</code>)</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Directions for recieving and gathering data</h2></hgroup><article  id="directions-for-recieving-and-gathering-data">
-
-<ul>
-<li><strong>NEVER EVER</strong> change a value of an original (RAW) dataset</li>
-<li>Add new variables to the dataset with recognizable names:</li>
-<li>Never change a file name of a raw dataset; this will cause tracibility of that file to break.</li>
-</ul>
-
 </article></slide><slide class=""><hgroup><h2>Replacing old, creating new variables</h2></hgroup><article  id="replacing-old-creating-new-variables">
 
 <pre class = 'prettyprint lang-r'>## replacing lifeExp in years for lifeExp in months
@@ -255,31 +239,6 @@ gapminder &lt;- gapminder %&gt;%
   mutate(lifeExp_months = lifeExp * 24)</pre>
 
 <p><em>Mutate new variables on the basis of old one, do not replace the old variable</em></p>
-
-</article></slide><slide class=""><hgroup><h2>Data Governance</h2></hgroup><article  id="data-governance">
-
-<p>WIKIPEDIA: 12-05-2017:</p>
-
-<ul>
-<li>Is a control that ensures that the data entry by an operations team member or by automated processes meets precise standards,</li>
-<li>The data governor uses data quality monitoring against production data to communicate errors in data for corrective action.</li>
-<li>Is used by organizations to exercise control over processes and methods used by their data stewards and data custodians in order to improve data quality.</li>
-<li>Is a set of processes that ensures that important data assets are formally managed throughout the enterprise.</li>
-<li>Esures that data can be trusted and that people can be made accountable for any adverse event that happens because of low data quality.</li>
-<li>Is about putting people in charge of fixing and preventing issues with data so that the enterprise can become more efficient.</li>
-<li>Also describes an evolutionary process for a company, altering the company’s way of thinking and setting up the processes to handle information so that it may be utilized by the entire organization.</li>
-<li>It’s about using technology when necessary in many forms to help aid the process. When companies desire, or are required, to gain control of their data, they empower their people, set up processes and get help from technology to do it</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Programming in Data Govenance</h2></hgroup><article  id="programming-in-data-govenance">
-
-<ul>
-<li>Programming tools like R can aid governance of data</li>
-<li>It helps debudding and finding errors,</li>
-<li>But can also introduce errors!!</li>
-<li>Code is reproducible and sharable</li>
-<li>Code helps communication about data and what happened to the data (in terms of gathering, cleaning, combining, filtering, visualizing)</li>
-</ul>
 
 </article></slide><slide class=""><hgroup><h2>R packages</h2></hgroup><article  id="r-packages">
 
